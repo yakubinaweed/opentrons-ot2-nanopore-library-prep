@@ -18,7 +18,7 @@ Before running the protocol, please ensure the following equipment and materials
 - **(Left Mount) Opentrons P300 8-Channel GEN2**:  
   - For high-throughput liquid handling with 8 channels, essential for transferring larger volumes across multiple wells.
 - **(Right Mount) Opentrons P20 Single-Channel GEN2**:  
-  - For precise, single-channel pipetting, especially for smaller volume transfers like ligation.
+  - For precise, single-channel pipetting, especially for smaller volume transfers.
 
 #### 3. **Labware:**
 - **Abgene™ 96-Well 0.8mL Polypropylene DeepWell™ Sample Processing & Storage Plate**  
