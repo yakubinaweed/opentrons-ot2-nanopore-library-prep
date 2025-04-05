@@ -139,9 +139,11 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ---
 
 ### Additionally
-Refer to the figure below for a visual representation of the updated magnetic module setup.
+Refer to the figure below for a visual representation of the updated magnetic module setup:
 
 [Figure: Magnetic Module with 3D Raiser and Extra Magnets]
 
-For more details on the extra magnets and the setup, please refer to the official guide [here](https://support.opentrons.com/s/article/Adapter-magnets). Magnetic Module Adapter Magnets:  
-For optimal bead separation, ensure that you use the adapter magnets (available from Opentrons) as described in the official guide here. These magnets should be placed on the magnetic module deck as shown in the guide to enhance the separation process, ensuring that the beads are fully captured during the cleanup step.
+For more details on the extra magnets and setup, please refer to the official guide [here](https://support.opentrons.com/s/article/Adapter-magnets).
+
+To ensure optimal bead separation, use the adapter magnets available from Opentrons as described in the guide. These magnets should be placed on the magnetic module deck as shown to enhance bead capture during the cleanup step and minimize bead loss during supernatant aspiration.
+
