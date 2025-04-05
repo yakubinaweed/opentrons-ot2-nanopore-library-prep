@@ -2,7 +2,9 @@
 
 ## Protocol Overview
 
-The **Opentrons Nanopore Library Preparation Protocol** automates critical steps in DNA library preparation for Nanopore sequencing. This protocol is optimized for adapter ligation, bead-based cleanup, and elution, with an optional end-prep step. The automation of these processes reduces manual labor and variability, ensuring consistency and reproducibility across experiments.
+The **Opentrons Nanopore Library Preparation Protocol** automates critical steps in DNA library preparation for Nanopore sequencing. This protocol is optimized for adapter ligation, bead-based cleanup, and elution, with an optional end-prep step. Automating these processes reduces manual labor, variability, and ensures consistency and reproducibility across experiments.
+
+---
 
 ### Requirements
 
@@ -10,88 +12,92 @@ Before running the protocol, please ensure the following equipment and materials
 
 #### 1. **Robot and Modules:**
 - **Opentrons OT-2**: The primary robot for automating pipetting and liquid handling.
-- **Magnetic Module GEN2**: Required for bead-based cleanup steps.
+- **Magnetic Module GEN2**: Required for bead-based cleanup steps. A 3D raiser mount has been added for better magnet engagement and proper spacing.
 
 #### 2. **Pipettes:**
-- **Opentrons P300 8-Channel GEN2**:  
-  - Used for high-throughput liquid handling with 8 channels for parallel pipetting, essential for transferring larger volumes across multiple wells.
-- **Opentrons P20 Single-Channel GEN2**:  
-  - Provides precise, single-channel pipetting for smaller volume transfers, especially for critical steps like ligation.
+- **(Left Mount) Opentrons P300 8-Channel GEN2**:  
+  - For high-throughput liquid handling with 8 channels, essential for transferring larger volumes across multiple wells.
+- **(Right Mount) Opentrons P20 Single-Channel GEN2**:  
+  - For precise, single-channel pipetting, especially for smaller volume transfers like ligation.
 
 #### 3. **Labware:**
-- **Armadillo 96-well PCR Plate (AB2396)**:  
-  - Required for performing the library preparation steps. This PCR plate has unique properties to prevent bead pickup during supernatant aspiration, making it ideal for this protocol.
+- **Abgene™ 96-Well 0.8mL Polypropylene DeepWell™ Sample Processing & Storage Plate**  
+  - Ideal for performing library preparation steps, with unique properties to prevent bead pickup during supernatant aspiration.
 - **Opentrons Tipracks (20 µL & 300 µL)**:  
-  - For storing the pipette tips used for liquid handling with both the P20 and P300 pipettes.
-- **NEST or Custom Reservoirs**:  
-  - To store reagents (e.g., ligation mix, beads, buffers). Ensure the reservoirs are properly labeled and filled with the required reagents.
+  - Required for storing pipette tips used with both the P20 and P300 pipettes.  
+  - For 8 input samples: Use **2 x 300 µL Tipracks**.  
+  - For 1-7 input samples: **1 x 20/300 µL Tiprack** suffices.
 
 #### 4. **Reagents:**
-Refer to the [reagents documentation](docs/reagents.md) for specific reagents needed for the protocol. You will need:
-- **Ligation reagents** (for adapter ligation)
-- **Beads** (for cleanup steps)
-- **Elution buffer** (for the elution step)
-- **Optional**: End-prep reagents (if using an optional end-prep step)
+Refer to the official Nanopore Library Prep Sequencing Kits (SQK-LSK114) for specific reagents needed for the protocol. **Stock plates** for Armadillo are created through another custom protocol, allowing long-term storage and easy grab-and-go access. The reagents required for each DNA sample are:
+
+- **Ampure Beads**: 100 µL
+- **80% Ethanol**: 500 µL
+- **Nuclease-Free Water**: 61 µL
+- **Ligation Buffer**: 25 µL
+- **Ligase**: 10 µL
+- **Ligation Adapter**: 5 µL
+- **Short Fragment Buffer**: 450 µL
+- **Elution Buffer**: 15 µL
+
+*(Note: An extra 2 µL dead volume is recommended for added accuracy.)*
 
 #### 5. **Software:**
-- **Opentrons App** (Version 2.x or higher):  
-  - This is the interface used to upload and run the protocol. It is essential to have the Opentrons App installed and configured on your computer.
+- **Opentrons App (Version 2.x or higher)**:  
+  - Essential for uploading and running the protocol. Ensure the app is installed and configured with custom labware on your computer.
 
 #### 6. **Custom Labware:**
-- **Armadillo 96-well PCR Plate** must be added to the Opentrons Labware Library for compatibility with the protocol. If you do not already have it in your library, you will need to import the custom labware definitions from the `custom_labware/` directory.
-
-For more details on how to import custom labware, refer to the [custom labware documentation](protocol/custom_labware/README.md).
+- **Abgene™ 96-Well 0.8mL Polypropylene DeepWell™ Sample Processing & Storage Plate**  
+  - This custom labware definition must be added to the Opentrons Labware Library.  
+  - If not already available, import the labware definitions from the `custom_labware/` directory.
 
 ---
 
 ## Deck Layout
 
-A proper deck layout is essential for the protocol to run smoothly. The labware should be arranged as follows:
+Proper deck layout is essential for smooth execution. The labware should be arranged as follows:
 
-- **Tip Racks** (20 µL & 300 µL):  
-  - Ensure that the tip racks are placed in the designated positions for the P20 and P300 pipettes.
-- **Armadillo 96-well PCR Plate**:  
-  - Located on the deck for pipetting and magnetic bead handling.
+- **Tip Racks (20 µL & 300 µL)**:  
+  - Place the tip racks in the designated positions for the P20 and P300 pipettes (as shown in the Opentrons App).
+- **Abgene™ 96-Well Plate**:  
+  - Place the plate on the magnetic module deck for pipetting and magnetic bead handling.
 - **Magnetic Module GEN2**:  
-  - Place the magnetic module in the correct slot to handle bead separation during the cleanup step.
-- **Reservoirs**:  
-  - Store reagents such as ligation mix, beads, and buffers in the reservoirs, following the deck layout provided.
+  - Position the magnetic module in the appropriate slot to handle bead separation.  
+  - Ensure the 3D printed spacer is placed correctly on top of the magnetic module for optimal performance.
 
-Refer to the [deck setup image](docs/images/deck_setup.png) for more detailed visual guidance.
+Refer to the [deck setup image](docs/images/deck_setup.png) for a detailed visual guide.
 
 ---
 
 ## How to Run
 
-Follow the steps below to execute the protocol:
-
 1. **Open the Opentrons App**:  
-   Download and open the Opentrons App, then upload the `nanopore_library_prep.py` script.
-
+   - Download and open the Opentrons App, then upload the `nanopore_library_prep.py` script.
+   
 2. **Import Custom Labware**:  
-   If you do not have the required custom labware (e.g., Armadillo 96-well PCR Plate) already in your library, import it from the `custom_labware/` directory.
+   - If the required custom labware (e.g., Abgene™ 96-Well PCR Plate) is not in your library, import it from the `custom_labware/` directory.
 
 3. **Prepare the Deck**:  
-   - Arrange reagents, tip racks, and the magnetic module according to the specified deck layout.
-   - Ensure the pipettes (P300 and P20) are installed and calibrated correctly.
-   
+   - Arrange the reagents, tip racks, and magnetic module according to the deck layout provided in the App.
+   - Ensure the P300 and P20 pipettes are installed and calibrated correctly.
+
 4. **Calibrate Labware**:  
-   Perform calibration of the pipettes and labware to ensure accurate liquid handling.
+   - Calibrate the pipettes and labware to ensure accurate liquid handling and proper positioning.
 
 5. **Run the Protocol**:  
-   Click **Run** in the Opentrons App to begin the library preparation process. The App will guide you through each step, providing estimated time remaining and current protocol status.
+   - Click **Run** in the Opentrons App to begin the library preparation process. The App will guide you through each step and provide updates on the protocol’s progress.
 
 6. **Post-Run**:  
-   After the protocol finishes, retrieve the samples and assess the quality of the final product to confirm proper preparation. The resulting library should be ready for sequencing.
+   - After the protocol finishes, retrieve the samples and assess the quality of the final library preparation (ligated and bead-cleaned). The library should now be ready to add sequencing beads and proceed to sequencing.
 
 ---
 
 ## Protocol Notes
 
-- **Bead Drying Time**: Bead drying time is critical for the cleanup step. Adjust the drying time according to your lab conditions (e.g., humidity, temperature).
+- **Bead Drying Time**: The drying time for beads is crucial for the cleanup step. Adjust the drying time based on your lab conditions (e.g., temperature, humidity).
   
 - **Customization**:  
-  - The protocol includes adjustable parameters such as elution volume, mixing speed, and incubation time. These can be modified to fit specific experimental needs or reagent conditions.
+  - Parameters such as elution volume, mixing speed, and incubation time can be customized for specific experimental needs or reagent conditions.
   
 - **Reagent Compatibility**: This protocol is validated for use with **ONT ligation sequencing kits** (e.g., LSK114). If using different reagents, test and validate the protocol conditions to ensure compatibility.
 
