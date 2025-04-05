@@ -315,31 +315,6 @@ def run(ctx: protocol_api.ProtocolContext):
     # Disengage magnet
     magnetoff()
 
-    ###################### Send Slack message ######################
-
-    # Send HTTP POST request
-    url = 'https://n8n.saas-dev.in-cradle.bio/webhook/512f1f5d-98a2-4c8b-93fe-f14260079955'  # Replace with actual URL
-    payload = {
-        "row": "doei",
-        "channel_id": "C08BYDEM3FW"
-    }
-
-    data = json.dumps(payload).encode('utf-8')
-    headers = {'Content-Type': 'application/json'}
-    req = urllib.request.Request(url, data=data, headers=headers, method='POST')
-
-    # Create an SSL context that does not verify certificates
-    context = ssl._create_unverified_context()
-
-    try:
-        response = urllib.request.urlopen(req, context=context)
-        print("HTTP Response:", response.read().decode())  # Log the response
-    except Exception as e:
-        print("HTTP Request Failed:", str(e))
-
-    #Check if pellet is dry
-    ctx.pause("doei")
-
     ###################### Elute DNA from beads ######################
     # Transfer elution buffer
     m20.pick_up_tip()
