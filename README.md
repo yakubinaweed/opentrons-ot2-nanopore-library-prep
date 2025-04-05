@@ -1,4 +1,4 @@
-# Opentrons Nanopore Library Preparation Protocol
+# 🧬 Opentrons Nanopore Library Preparation Protocol
 
 ## Protocol Overview
 
