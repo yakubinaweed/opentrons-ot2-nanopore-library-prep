@@ -31,7 +31,7 @@ Before running the protocol, please ensure the following equipment and materials
   - For 1-7 input samples: **1 x 20/300 µL Tiprack** suffices.
 
 #### 4. **Reagents:**
-Refer to the official Nanopore Library Prep Sequencing Kits (SQK-LSK114) for specific reagents needed for the protocol. **Stock plates** for Armadillo are created through another custom protocol, allowing long-term storage and easy grab-and-go access. The reagents required for each DNA sample are:
+Refer to the official Nanopore Library Prep Sequencing Kits (SQK-LSK114) for specific reagents needed for the protocol. **Stock plates** for Armadillo are created through another custom protocol, allowing long-term storage and easy grab-and-go access. The reagents required for 1 DNA sample is:
 
 - **Ampure Beads**: 100 µL
 - **80% Ethanol**: 500 µL
