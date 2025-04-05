@@ -107,6 +107,9 @@ Refer to the [deck setup image](docs/images/deck_setup.png) for a detailed visua
    - The **magnet engage height** can be adjusted in **line 21** of the protocol. This parameter defines the highest point at which your magnets can engage with the 96-well plate and the 3D mount rack positioned on top of the magnetic module.
    - Adjust this value according to your specific setup for optimal magnetic engagement during bead separation.
 
+### **Pipette mounts:**
+   - The pipette mounts can be easily adjusted to match your current setup. To change the P300 8-Channel GEN2 mount, modify line 38 in the script. To change the P20 8-Channel GEN2 mount, modify line 46. By default, the P300 is assigned to the left mount and the P20 to the right mount.
+
 ---
 
 ## Protocol Notes
