@@ -18,7 +18,7 @@ Before running the protocol, please ensure the following equipment and materials
 - **(Left Mount) Opentrons P300 8-Channel GEN2**  
   For high-throughput liquid handling with 8 channels, essential for transferring larger volumes across multiple wells.
   
-- **(Right Mount) Opentrons P20 Single-Channel GEN2**  
+- **(Right Mount) Opentrons P20 8-Channel GEN2**  
   For precise, single-channel pipetting, especially for smaller volume transfers like ligation.
 
 #### 3. **Labware:**
@@ -135,12 +135,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ---
 
-### Optional Sections for Future Updates:
-
-- **Changelog**: Track protocol updates and improvements.
-- **Validation Data**: Include results from validation experiments (e.g., Bioanalyzer data).
-- **Performance Metrics**: Document key sequencing metrics such as yield, read length, and QC%.
-
+### Additionally
 Refer to the figure below for a visual representation of the updated magnetic module setup.
 
 [Figure: Magnetic Module with 3D Raiser and Extra Magnets]
