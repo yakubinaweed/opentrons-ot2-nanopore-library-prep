@@ -28,7 +28,7 @@ Before running the protocol, please ensure the following equipment and materials
 - **Opentrons Tipracks (20 µL & 300 µL)**  
   Required for storing pipette tips used with both the P20 and P300 pipettes.  
   - For 8 input samples: Use **2 x 300 µL Tipracks** and **1x 20 µL Tiprack**.  
-  - For 1-7 input samples: **1 x 20/300 µL Tiprack** suffices.
+  - For 1-7 input samples: **1 x 300/20 µL Tiprack** suffices.
 
 #### 4. **Reagents:**
 Refer to the official Nanopore Library Prep Sequencing Kits (SQK-LSK114) for specific reagents needed for the protocol. **Stock plates** for Armadillo are created through another custom protocol, allowing long-term storage and easy grab-and-go access. The reagents required for 1 DNA sample is:
