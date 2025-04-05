@@ -125,7 +125,7 @@ Refer to the [deck setup image](docs/images/deck_setup.png) for a detailed visua
 **Naweed Yakubi**  
 [GitHub Profile](https://github.com/YOUR_USERNAME)
 
-This protocol was developed to support automated, high-throughput Nanopore library preparation. For contributions or issues, please reach out via GitHub.
+This protocol was developed to support automated, high-throughput Nanopore library preparation for the Opentrons OT-2. For contributions or issues, please reach out via GitHub.
 
 ---
 
