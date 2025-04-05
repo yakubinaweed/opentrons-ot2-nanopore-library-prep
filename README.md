@@ -12,19 +12,21 @@ Before running the protocol, please ensure the following equipment and materials
 
 #### 1. **Robot and Modules:**
 - **Opentrons OT-2**: The primary robot for automating pipetting and liquid handling.
-- **Magnetic Module GEN2**: Required for bead-based cleanup steps. A 3D raiser mount has been added for better magnet engagement and proper spacing.
+- **Magnetic Module GEN2**: Required for bead-based cleanup steps. An **extra magnets setup** has been added to improve bead separation efficiency during supernatant aspiration, ensuring optimal bead capture. A **3D raiser mount** has also been used to help with proper magnet engagement and spacing for best performance.
 
 #### 2. **Pipettes:**
-- **(Left Mount) Opentrons P300 8-Channel GEN2**:  
-  - For high-throughput liquid handling with 8 channels, essential for transferring larger volumes across multiple wells.
-- **(Right Mount) Opentrons P20 Single-Channel GEN2**:  
-  - For precise, single-channel pipetting, especially for smaller volume transfers.
+- **(Left Mount) Opentrons P300 8-Channel GEN2**  
+  For high-throughput liquid handling with 8 channels, essential for transferring larger volumes across multiple wells.
+  
+- **(Right Mount) Opentrons P20 Single-Channel GEN2**  
+  For precise, single-channel pipetting, especially for smaller volume transfers like ligation.
 
 #### 3. **Labware:**
 - **Abgene™ 96-Well 0.8mL Polypropylene DeepWell™ Sample Processing & Storage Plate**  
-  - Ideal for performing library preparation steps, with unique properties to prevent bead pickup during supernatant aspiration.
-- **Opentrons Tipracks (20 µL & 300 µL)**:  
-  - Required for storing pipette tips used with both the P20 and P300 pipettes.  
+  Ideal for performing library preparation steps, with unique properties to prevent bead pickup during supernatant aspiration.
+
+- **Opentrons Tipracks (20 µL & 300 µL)**  
+  Required for storing pipette tips used with both the P20 and P300 pipettes.  
   - For 8 input samples: Use **2 x 300 µL Tipracks**.  
   - For 1-7 input samples: **1 x 20/300 µL Tiprack** suffices.
 
@@ -44,11 +46,11 @@ Refer to the official Nanopore Library Prep Sequencing Kits (SQK-LSK114) for spe
 
 #### 5. **Software:**
 - **Opentrons App (Version 2.x or higher)**:  
-  - Essential for uploading and running the protocol. Ensure the app is installed and configured with custom labware on your computer.
+  Essential for uploading and running the protocol. Ensure the app is installed and configured with custom labware on your computer.
 
 #### 6. **Custom Labware:**
 - **Abgene™ 96-Well 0.8mL Polypropylene DeepWell™ Sample Processing & Storage Plate**  
-  - This custom labware definition must be added to the Opentrons Labware Library.  
+  This custom labware definition must be added to the Opentrons Labware Library.  
   - If not already available, import the labware definitions from the `custom_labware/` directory.
 
 ---
@@ -59,11 +61,14 @@ Proper deck layout is essential for smooth execution. The labware should be arra
 
 - **Tip Racks (20 µL & 300 µL)**:  
   - Place the tip racks in the designated positions for the P20 and P300 pipettes (as shown in the Opentrons App).
+  
 - **Abgene™ 96-Well Plate**:  
   - Place the plate on the magnetic module deck for pipetting and magnetic bead handling.
+
 - **Magnetic Module GEN2**:  
   - Position the magnetic module in the appropriate slot to handle bead separation.  
-  - Ensure the 3D printed spacer is placed correctly on top of the magnetic module for optimal performance.
+  - **Extra magnets** have been added to enhance bead separation during the cleanup step. These magnets ensure better capture and separation of the beads from the supernatant.  
+  - Ensure the **3D printed spacer** is placed correctly on top of the magnetic module for optimal performance.
 
 Refer to the [deck setup image](docs/images/deck_setup.png) for a detailed visual guide.
 
@@ -89,6 +94,18 @@ Refer to the [deck setup image](docs/images/deck_setup.png) for a detailed visua
 
 6. **Post-Run**:  
    - After the protocol finishes, retrieve the samples and assess the quality of the final library preparation (ligated and bead-cleaned). The library should now be ready to add sequencing beads and proceed to sequencing.
+
+---
+
+## Customization & Notes
+
+### **Adjusting the Number of DNA Samples:**
+   - In **line 18** of the protocol, you can adjust the number of input DNA samples for library preparation, ranging from **1 to 8 samples**.
+   - If you are preparing **8 samples**, ensure that you have an additional **300 µL tip rack** on the deck to accommodate all the necessary tips.
+
+### **Magnet Engage Height:**
+   - The **magnet engage height** can be adjusted in **line 21** of the protocol. This parameter defines the highest point at which your magnets can engage with the 96-well plate and the 3D mount rack positioned on top of the magnetic module.
+   - Adjust this value according to your specific setup for optimal magnetic engagement during bead separation.
 
 ---
 
@@ -124,3 +141,9 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 - **Validation Data**: Include results from validation experiments (e.g., Bioanalyzer data).
 - **Performance Metrics**: Document key sequencing metrics such as yield, read length, and QC%.
 
+Refer to the figure below for a visual representation of the updated magnetic module setup.
+
+[Figure: Magnetic Module with 3D Raiser and Extra Magnets]
+
+For more details on the extra magnets and the setup, please refer to the official guide here. Magnetic Module Adapter Magnets:  
+For optimal bead separation, ensure that you use the adapter magnets (available from Opentrons) as described in the official guide here. These magnets should be placed on the magnetic module deck as shown in the guide to enhance the separation process, ensuring that the beads are fully captured during the cleanup step.
