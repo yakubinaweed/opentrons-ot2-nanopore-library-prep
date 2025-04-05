@@ -2,7 +2,7 @@
 
 ## Protocol Overview
 
-The **Opentrons Nanopore Library Preparation Protocol** automates critical steps in DNA library preparation for Nanopore sequencing. This protocol is optimized for adapter ligation, bead-based cleanup, and elution, with an optional end-prep step. Automating these processes reduces manual labor, variability, and ensures consistency and reproducibility across experiments.
+The **Opentrons Nanopore Library Preparation Protocol** automates critical steps in DNA library preparation for Nanopore sequencing. This protocol is optimized for adapter ligation, bead-based cleanup, and elution. Automating these processes reduces manual labor, variability, and ensures consistency and reproducibility across experiments.
 
 ---
 
